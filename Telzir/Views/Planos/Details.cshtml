@@ -43,10 +43,11 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@Model.Id">Editar</a> 
+    <a class="btn btn-danger btn-sm"asp-action="Index">Voltar para lista</a>
 </div>
 
+</br>
 <div class="row">
 <table class="table table-bordered">
   <thead>
@@ -64,9 +65,9 @@
             <td scope="row">@item.Descricao</td>
             <td scope="row">@item.Minutos</td>             
             <td>
-                <a asp-controller="Pacotes" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-controller="Pacotes" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-controller="Pacotes" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="btn btn-primary btn-sm" asp-controller="Pacotes" asp-action="Edit" asp-route-id="@item.Id">Editar</a> 
+                <a class="btn btn-secondary  btn-sm" asp-controller="Pacotes" asp-action="Details" asp-route-id="@item.Id">Visualizar</a> 
+                <a class="btn btn-warning  btn-sm" asp-controller="Pacotes" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
             </td>       
         </tr>
         }
