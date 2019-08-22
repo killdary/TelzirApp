@@ -34,6 +34,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        
+                        @await Component.InvokeAsync("PlanosMenu")
+                   
                     </ul>
                 </div>
             </div>
@@ -41,7 +44,7 @@
     </header>
     <div class="container">
         <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3"> 
             @RenderBody()
         </main>
     </div>

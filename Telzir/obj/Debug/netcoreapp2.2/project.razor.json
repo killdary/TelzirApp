@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\projetos\\estudos\\TelzirApp\\Telzir\\Telzir.csproj",
+  "FilePath": "/home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir/Telzir.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2943,143 +2943,148 @@
   "RootNamespace": "Telzir",
   "Documents": [
     {
-      "FilePath": "Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FilePath": "Views/Pacotes/Details.cshtml",
+      "TargetPath": "Views/Pacotes/Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Pacotes\\Edit.cshtml",
-      "TargetPath": "Views\\Pacotes\\Edit.cshtml",
+      "FilePath": "Views/Planos/Delete.cshtml",
+      "TargetPath": "Views/Planos/Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Usuarios\\Details.cshtml",
-      "TargetPath": "Views\\Usuarios\\Details.cshtml",
+      "FilePath": "Views/Planos/Details.cshtml",
+      "TargetPath": "Views/Planos/Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Usuarios\\Edit.cshtml",
-      "TargetPath": "Views\\Usuarios\\Edit.cshtml",
+      "FilePath": "Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views/Shared/_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Usuarios\\Index.cshtml",
-      "TargetPath": "Views\\Usuarios\\Index.cshtml",
+      "FilePath": "Views/_ViewStart.cshtml",
+      "TargetPath": "Views/_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Pacotes\\Create.cshtml",
-      "TargetPath": "Views\\Pacotes\\Create.cshtml",
+      "FilePath": "Views/Pacotes/Index.cshtml",
+      "TargetPath": "Views/Pacotes/Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FilePath": "Views/Pacotes/Create.cshtml",
+      "TargetPath": "Views/Pacotes/Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Planos\\Details.cshtml",
-      "TargetPath": "Views\\Planos\\Details.cshtml",
+      "FilePath": "Views/Tarifas/Index.cshtml",
+      "TargetPath": "Views/Tarifas/Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FilePath": "Views/Home/Index.cshtml",
+      "TargetPath": "Views/Home/Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FilePath": "Views/Home/Privacy.cshtml",
+      "TargetPath": "Views/Home/Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Tarifas\\Delete.cshtml",
-      "TargetPath": "Views\\Tarifas\\Delete.cshtml",
+      "FilePath": "Views/Usuarios/Edit.cshtml",
+      "TargetPath": "Views/Usuarios/Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Tarifas\\Details.cshtml",
-      "TargetPath": "Views\\Tarifas\\Details.cshtml",
+      "FilePath": "Views/Tarifas/Create.cshtml",
+      "TargetPath": "Views/Tarifas/Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Shared\\_CookieConsentPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
+      "FilePath": "Views/Usuarios/Index.cshtml",
+      "TargetPath": "Views/Usuarios/Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Planos\\Delete.cshtml",
-      "TargetPath": "Views\\Planos\\Delete.cshtml",
+      "FilePath": "Views/Tarifas/Edit.cshtml",
+      "TargetPath": "Views/Tarifas/Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Usuarios\\Create.cshtml",
-      "TargetPath": "Views\\Usuarios\\Create.cshtml",
+      "FilePath": "Views/Planos/Create.cshtml",
+      "TargetPath": "Views/Planos/Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FilePath": "Views/Pacotes/Edit.cshtml",
+      "TargetPath": "Views/Pacotes/Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FilePath": "Views/Tarifas/Details.cshtml",
+      "TargetPath": "Views/Tarifas/Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Planos\\Create.cshtml",
-      "TargetPath": "Views\\Planos\\Create.cshtml",
+      "FilePath": "Views/Shared/Components/PlanosMenu/Default.cshtml",
+      "TargetPath": "Views/Shared/Components/PlanosMenu/Default.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Pacotes\\Details.cshtml",
-      "TargetPath": "Views\\Pacotes\\Details.cshtml",
+      "FilePath": "Views/_ViewImports.cshtml",
+      "TargetPath": "Views/_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Planos\\Edit.cshtml",
-      "TargetPath": "Views\\Planos\\Edit.cshtml",
+      "FilePath": "Views/Usuarios/Create.cshtml",
+      "TargetPath": "Views/Usuarios/Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "Views/Usuarios/Details.cshtml",
+      "TargetPath": "Views/Usuarios/Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Pacotes\\Index.cshtml",
-      "TargetPath": "Views\\Pacotes\\Index.cshtml",
+      "FilePath": "Views/Shared/Error.cshtml",
+      "TargetPath": "Views/Shared/Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Tarifas\\Index.cshtml",
-      "TargetPath": "Views\\Tarifas\\Index.cshtml",
+      "FilePath": "Views/Tarifas/Delete.cshtml",
+      "TargetPath": "Views/Tarifas/Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Usuarios\\Delete.cshtml",
-      "TargetPath": "Views\\Usuarios\\Delete.cshtml",
+      "FilePath": "Views/Pacotes/Delete.cshtml",
+      "TargetPath": "Views/Pacotes/Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Tarifas\\Create.cshtml",
-      "TargetPath": "Views\\Tarifas\\Create.cshtml",
+      "FilePath": "Views/Usuarios/Delete.cshtml",
+      "TargetPath": "Views/Usuarios/Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Pacotes\\Delete.cshtml",
-      "TargetPath": "Views\\Pacotes\\Delete.cshtml",
+      "FilePath": "Views/Planos/Index.cshtml",
+      "TargetPath": "Views/Planos/Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Planos\\Index.cshtml",
-      "TargetPath": "Views\\Planos\\Index.cshtml",
+      "FilePath": "Views/Shared/_CookieConsentPartial.cshtml",
+      "TargetPath": "Views/Shared/_CookieConsentPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Tarifas\\Edit.cshtml",
-      "TargetPath": "Views\\Tarifas\\Edit.cshtml",
+      "FilePath": "Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views/Shared/_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Planos/Edit.cshtml",
+      "TargetPath": "Views/Planos/Edit.cshtml",
       "FileKind": "mvc"
     }
   ],

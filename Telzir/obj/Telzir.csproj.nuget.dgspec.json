@@ -1,29 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projetos\\estudos\\TelzirApp\\Telzir\\Telzir.csproj": {}
+    "/home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir/Telzir.csproj": {}
   },
   "projects": {
-    "C:\\projetos\\estudos\\TelzirApp\\Telzir\\Telzir.csproj": {
+    "/home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir/Telzir.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projetos\\estudos\\TelzirApp\\Telzir\\Telzir.csproj",
+        "projectUniqueName": "/home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir/Telzir.csproj",
         "projectName": "Telzir",
-        "projectPath": "C:\\projetos\\estudos\\TelzirApp\\Telzir\\Telzir.csproj",
-        "packagesPath": "C:\\Users\\cpd_killdary\\.nuget\\packages\\",
-        "outputPath": "C:\\projetos\\estudos\\TelzirApp\\Telzir\\obj\\",
+        "projectPath": "/home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir/Telzir.csproj",
+        "packagesPath": "/home/killdary/.nuget/packages/",
+        "outputPath": "/home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\cpd_killdary\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/killdary/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.2": {
