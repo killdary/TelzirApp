@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Telzir.Models
 {
@@ -12,5 +14,7 @@ namespace Telzir.Models
         public DateTime Editado { get; set; }
 
         public Usuario Usuario { get; set; }
+        public ICollection<Pacote> Pacotes { get; set; } 
+
     }
 }

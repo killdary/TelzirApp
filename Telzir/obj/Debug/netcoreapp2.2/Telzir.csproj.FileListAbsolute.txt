@@ -98,3 +98,5 @@ c:\projetos\estudos\TelzirApp\Telzir\obj\Debug\netcoreapp2.2\Telzir.Views.pdb
 c:\projetos\estudos\TelzirApp\Telzir\obj\Debug\netcoreapp2.2\Telzir.dll
 c:\projetos\estudos\TelzirApp\Telzir\obj\Debug\netcoreapp2.2\Telzir.pdb
 c:\projetos\estudos\TelzirApp\Telzir\obj\Debug\netcoreapp2.2\Telzir.csproj.CopyComplete
+C:\projetos\estudos\TelzirApp\Telzir\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LayoutLogin.g.cshtml.cs
+C:\projetos\estudos\TelzirApp\Telzir\obj\Debug\netcoreapp2.2\Razor\Views\Usuarios\Login.g.cshtml.cs

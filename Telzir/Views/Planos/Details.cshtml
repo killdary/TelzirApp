@@ -46,3 +46,33 @@
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+<div class="row">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Minutos</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var item in Model.Pacotes) {
+        <tr>
+            <td scope="row">@item.Id</td>
+            <td scope="row">@item.Descricao</td>
+            <td scope="row">@item.Minutos</td>             
+            <td>
+                <a asp-controller="Pacotes" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-controller="Pacotes" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-controller="Pacotes" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>       
+        </tr>
+        }
+  </tbody>
+</table>
+
+
+</div>
+

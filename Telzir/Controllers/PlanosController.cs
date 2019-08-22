@@ -36,6 +36,9 @@ namespace Telzir.Controllers
 
             var plano = await _context.Plano
                 .FirstOrDefaultAsync(m => m.Id == id);
+            
+            plano.Pacotes = await _context.Pacote.Where(p => p.Plano.Id == plano.Id).ToListAsync();
+
             if (plano == null)
             {
                 TempData["codeError"] = 404;
