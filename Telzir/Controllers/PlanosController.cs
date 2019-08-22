@@ -153,9 +153,34 @@ namespace Telzir.Controllers
             return _context.Plano.Any(e => e.Id == id);
         }
 
-        // public async Task<IActionResult> ExibePlano(int? id){
+        public IActionResult Oferta(int? id)
+        {
+            PlanoPacotes planoComPacotes = new PlanoPacotes();
+            if (id == null)
+            {
+                TempData["codeError"] = 404;
+                TempData["Mensagem"] = "O plano Desejado não foi encontrado. Por favor tente novamente mais tarde.";
+                return RedirectToAction("Index", "Home");
+            }
 
-        //     return null;
-        // }
+            var plano = _context.Plano
+                .FirstOrDefault(m => m.Id == id);
+
+            var pacotes = _context.Pacote.Where(p => p.Plano.Id == plano.Id).ToList();
+            var tarifas = _context.Tarifa.ToList();
+
+            planoComPacotes.Plano = plano;
+            planoComPacotes.Pacotes = pacotes;
+            planoComPacotes.Tarifas = tarifas;
+
+            if (plano == null)
+            {
+                TempData["codeError"] = 404;
+                TempData["Mensagem"] = "O plano Desejado não foi encontrado. Por favor tente novamente mais tarde.";
+                return RedirectToAction("Index", "Home");
+            }
+            
+            return View(planoComPacotes);
+        }
     }
 }

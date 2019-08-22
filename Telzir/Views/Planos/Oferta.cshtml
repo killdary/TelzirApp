@@ -1,0 +1,89 @@
+@model Telzir.Models.PlanoPacotes
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="text-center">
+    <h1 class="display-4">@Model.Plano.Nome</h1>
+    
+</div>
+
+    <p class="lead">
+        @Model.Plano.Descricao
+    </p>
+        
+    <h3>Pacotes</h3>
+    <p class="lead">
+        Abaixo você poderá conferir nossos pacotes.
+    </p>
+
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Minutos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Pacotes ) { 
+        <tr>         
+            <th scope="row">@item.Descricao</th>
+            <th>@item.Minutos</th>   
+        </tr>         
+        }
+    </tbody>
+    </table>
+    <h3>Simulação</h3>
+    <p class="lead">
+        Realize uma simulação e veja quanto você pagará através do @Model.Plano.Nome.
+    </p>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <label for="exampleInputEmail1">DD Origem</label>
+                
+    <select class="form-control" id="exampleFormControlSelect1">
+      
+        @foreach (var item in Model.Tarifas.GroupBy(s => s.DdOrigem).Select(y => y.First())) { 
+            
+                <option>@item.DdOrigem</option>   
+        }
+    </select>
+        </div>
+        <div class="col-lg-4">
+            <label for="exampleInputEmail1">DD Destino</label>
+                
+    <select class="form-control" id="exampleFormControlSelect1">
+      @foreach (var item in Model.Tarifas.GroupBy(s => s.DdDestino).Select(y => y.First())) { 
+            
+                <option>@item.DdDestino</option>   
+        }
+    </select>
+        </div>
+        <div class="col-lg-4">
+            <label for="exampleInputEmail1">Número de minutos</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <label for="exampleInputEmail1">Valor Com o Plano</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            
+        </div>
+        <div class="col-lg-4">
+            <label for="exampleInputEmail1">Valor Sem o Plano</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            
+        </div>
+        <div class="col-lg-4">
+            <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            
+        </div>
+    </div>

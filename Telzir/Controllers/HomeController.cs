@@ -6,13 +6,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Telzir.Models;
 using Telzir.Negocio;
+using Microsoft.EntityFrameworkCore;
 
 namespace Telzir.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly TelzirContext _context;
+
+        public HomeController(TelzirContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
+            var listaPlanos = _context.Plano.ToList();
+            ViewBag.Planos = listaPlanos;
             return View();
         }
 

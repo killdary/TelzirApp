@@ -3086,6 +3086,11 @@
       "FilePath": "Views/Planos/Edit.cshtml",
       "TargetPath": "Views/Planos/Edit.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Planos/Oferta.cshtml",
+      "TargetPath": "Views/Planos/Oferta.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.1"

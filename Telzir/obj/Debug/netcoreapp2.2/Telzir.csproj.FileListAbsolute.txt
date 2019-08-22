@@ -149,3 +149,4 @@ c:/projetos/estudos/TelzirApp/Telzir/obj/Debug/netcoreapp2.2/Telzir.csproj.CopyC
 /home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir/obj/Debug/netcoreapp2.2/Telzir.pdb
 /home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir/obj/Debug/netcoreapp2.2/Telzir.csproj.CopyComplete
 /home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir/obj/Debug/netcoreapp2.2/Razor/Views/Shared/Components/PlanosMenu/Default.g.cshtml.cs
+/home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir/obj/Debug/netcoreapp2.2/Razor/Views/Planos/Oferta.g.cshtml.cs
