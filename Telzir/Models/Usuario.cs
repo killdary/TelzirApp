@@ -9,6 +9,7 @@ namespace Telzir.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public string Login { get; set; }
+        [DataType(DataType.Password)]
         public string Senha { get; set; }
     }
 }
