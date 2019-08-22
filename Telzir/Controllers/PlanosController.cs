@@ -45,6 +45,11 @@ namespace Telzir.Controllers
                 TempData["Mensagem"] = "O plano Desejado não foi encontrado. Por favor tente novamente mais tarde.";
                 return RedirectToAction("Index", "Planos");
             }
+            
+            TempData["PlanoId"] = plano.Id;
+            TempData.Keep("PlanoId");
+
+            
 
             return View(plano);
         }
