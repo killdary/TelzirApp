@@ -11,6 +11,11 @@ namespace Telzir.Negocio
         public decimal ValorComPlano { get; set; }
         public decimal ValorSemPlano { get; set; }
 
+        // 0 - Erro na consulta
+        // 1 - Tarifa informada não existe
+        // 2 - Valor calculado com sucesso
+        public int Status {get; set; }
+
         public CalculoTarifa ValorTarifa(){
 
             ValorSemPlano = MinutosConsumidos * Valor;

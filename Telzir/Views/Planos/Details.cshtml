@@ -1,10 +1,10 @@
 @model Telzir.Models.Plano
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Visualizar";
 }
 
-<h1>Details</h1>
+<h1>Visualizar</h1>
 
 <div>
     <h4>Plano</h4>
@@ -65,9 +65,9 @@
             <td scope="row">@item.Descricao</td>
             <td scope="row">@item.Minutos</td>             
             <td>
-                <a class="btn btn-primary btn-sm" asp-controller="Pacotes" asp-action="Edit" asp-route-id="@item.Id">Editar</a> 
-                <a class="btn btn-secondary  btn-sm" asp-controller="Pacotes" asp-action="Details" asp-route-id="@item.Id">Visualizar</a> 
-                <a class="btn btn-warning  btn-sm" asp-controller="Pacotes" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                <a class="btn btn-primary btn-sm" asp-controller="Pacotes" asp-action="Editar" asp-route-id="@item.Id">Editar</a> 
+                <a class="btn btn-secondary  btn-sm" asp-controller="Pacotes" asp-action="Visualizar" asp-route-id="@item.Id">Visualizar</a> 
+                <a class="btn btn-warning  btn-sm" asp-controller="Pacotes" asp-action="Deletar" asp-route-id="@item.Id">Deletar</a>
             </td>       
         </tr>
         }

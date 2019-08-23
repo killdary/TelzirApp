@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Telzir.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Telzir.Controllers
 {
+    [Authorize]
     public class TarifasController : Controller
     {
         private readonly TelzirContext _context;

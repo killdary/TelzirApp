@@ -3051,8 +3051,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Shared/Components/PlanosMenu/Default.cshtml",
+      "TargetPath": "Views/Shared/Components/PlanosMenu/Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/_ViewImports.cshtml",
       "TargetPath": "Views/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/_LayoutHome.cshtml",
+      "TargetPath": "Views/Shared/_LayoutHome.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3108,6 +3118,11 @@
     {
       "FilePath": "Views/Planos/Edit.cshtml",
       "TargetPath": "Views/Planos/Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Planos/Oferta.cshtml",
+      "TargetPath": "Views/Planos/Oferta.cshtml",
       "FileKind": "mvc"
     }
   ],

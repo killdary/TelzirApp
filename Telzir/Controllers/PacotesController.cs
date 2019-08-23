@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Telzir.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Telzir.Controllers
 {
+    [Authorize]
     public class PacotesController : Controller
     {
         private readonly TelzirContext _context;
@@ -19,9 +21,10 @@ namespace Telzir.Controllers
         }
 
         // GET: Pacotes
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Pacote.ToListAsync());
+            return RedirectToAction("Index", "Planos");
+            // return View(await _context.Pacote.ToListAsync());
         }
 
         // GET: Pacotes/Details/5

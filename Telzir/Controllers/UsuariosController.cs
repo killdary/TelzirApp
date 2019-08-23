@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Telzir.Controllers
 {
+    [Authorize]
     public class UsuariosController : Controller
     {
         private readonly TelzirContext _context;
@@ -190,13 +191,19 @@ namespace Telzir.Controllers
                 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Planos");
             }
             else{
                 TempData["ErroAutenticacao"] = "Usuário ou senha inválido";
                 return View();
             }
-            
+        
+        }
+        [AllowAnonymous]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login", "Usuarios");
         }
     }
 }

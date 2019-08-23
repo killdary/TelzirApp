@@ -17,11 +17,11 @@ c:/projetos/estudos/TelzirApp/Telzir.Testes/bin/Debug/netcoreapp2.2/Telzir.pdb
 c:/projetos/estudos/TelzirApp/Telzir.Testes/obj/Debug/netcoreapp2.2/Telzir.Testes.csproj.CopyComplete
 c:/projetos/estudos/TelzirApp/Telzir.Testes/obj/Debug/netcoreapp2.2/Telzir.Testes.dll
 c:/projetos/estudos/TelzirApp/Telzir.Testes/obj/Debug/netcoreapp2.2/Telzir.Testes.pdb
+/home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir.Testes/bin/Debug/netcoreapp2.2/Telzir.Views.dll
+/home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir.Testes/bin/Debug/netcoreapp2.2/Telzir.Views.pdb
 /home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir.Testes/bin/Debug/netcoreapp2.2/xunit.runner.visualstudio.dotnetcore.testadapter.dll
 /home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir.Testes/bin/Debug/netcoreapp2.2/xunit.runner.reporters.netcoreapp10.dll
 /home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir.Testes/bin/Debug/netcoreapp2.2/xunit.runner.utility.netcoreapp10.dll
-/home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir.Testes/bin/Debug/netcoreapp2.2/Telzir.Views.dll
-/home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir.Testes/bin/Debug/netcoreapp2.2/Telzir.Views.pdb
 /home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir.Testes/bin/Debug/netcoreapp2.2/Telzir.Testes.deps.json
 /home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir.Testes/bin/Debug/netcoreapp2.2/Telzir.Testes.runtimeconfig.json
 /home/killdary/Documentos/estudos/Projetos/TelzirApp/Telzir.Testes/bin/Debug/netcoreapp2.2/Telzir.Testes.runtimeconfig.dev.json
