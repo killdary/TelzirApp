@@ -1,10 +1,10 @@
 @model Telzir.Models.Plano
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Visualizar";
 }
 
-<h1>Details</h1>
+<h1>Visualizar</h1>
 
 <div>
     <h4>Plano</h4>
@@ -43,6 +43,37 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@Model.Id">Editar</a> 
+    <a class="btn btn-danger btn-sm"asp-action="Index">Voltar para lista</a>
 </div>
+
+</br>
+<div class="row">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Minutos</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var item in Model.Pacotes) {
+        <tr>
+            <td scope="row">@item.Id</td>
+            <td scope="row">@item.Descricao</td>
+            <td scope="row">@item.Minutos</td>             
+            <td>
+                <a class="btn btn-primary btn-sm" asp-controller="Pacotes" asp-action="Editar" asp-route-id="@item.Id">Editar</a> 
+                <a class="btn btn-secondary  btn-sm" asp-controller="Pacotes" asp-action="Visualizar" asp-route-id="@item.Id">Visualizar</a> 
+                <a class="btn btn-warning  btn-sm" asp-controller="Pacotes" asp-action="Deletar" asp-route-id="@item.Id">Deletar</a>
+            </td>       
+        </tr>
+        }
+  </tbody>
+</table>
+
+
+</div>
+

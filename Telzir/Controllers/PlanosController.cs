@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Telzir.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Telzir.Controllers
 {
+    [Authorize]
     public class PlanosController : Controller
     {
         private readonly TelzirContext _context;
@@ -19,6 +21,7 @@ namespace Telzir.Controllers
         }
 
         // GET: Planos
+        
         public async Task<IActionResult> Index()
         {
             return View(await _context.Plano.ToListAsync());
@@ -36,12 +39,20 @@ namespace Telzir.Controllers
 
             var plano = await _context.Plano
                 .FirstOrDefaultAsync(m => m.Id == id);
+            
+            plano.Pacotes = await _context.Pacote.Where(p => p.Plano.Id == plano.Id).ToListAsync();
+
             if (plano == null)
             {
                 TempData["codeError"] = 404;
                 TempData["Mensagem"] = "O plano Desejado não foi encontrado. Por favor tente novamente mais tarde.";
                 return RedirectToAction("Index", "Planos");
             }
+            
+            TempData["PlanoId"] = plano.Id;
+            TempData.Keep("PlanoId");
+
+            
 
             return View(plano);
         }
@@ -153,9 +164,35 @@ namespace Telzir.Controllers
             return _context.Plano.Any(e => e.Id == id);
         }
 
-        // public async Task<IActionResult> ExibePlano(int? id){
+        [AllowAnonymous]
+        public IActionResult Oferta(int? id)
+        {
+            PlanoPacotes planoComPacotes = new PlanoPacotes();
+            if (id == null)
+            {
+                TempData["codeError"] = 404;
+                TempData["Mensagem"] = "O plano Desejado não foi encontrado. Por favor tente novamente mais tarde.";
+                return RedirectToAction("Index", "Home");
+            }
 
-        //     return null;
-        // }
+            var plano = _context.Plano
+                .FirstOrDefault(m => m.Id == id);
+
+            var pacotes = _context.Pacote.Where(p => p.Plano.Id == plano.Id).ToList();
+            var tarifas = _context.Tarifa.ToList();
+
+            planoComPacotes.Plano = plano;
+            planoComPacotes.Pacotes = pacotes;
+            planoComPacotes.Tarifas = tarifas;
+
+            if (plano == null)
+            {
+                TempData["codeError"] = 404;
+                TempData["Mensagem"] = "O plano Desejado não foi encontrado. Por favor tente novamente mais tarde.";
+                return RedirectToAction("Index", "Home");
+            }
+            
+            return View(planoComPacotes);
+        }
     }
 }

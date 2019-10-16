@@ -2,13 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Security.Claims;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Telzir.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Telzir.Controllers
 {
+    [Authorize]
     public class UsuariosController : Controller
     {
         private readonly TelzirContext _context;
@@ -147,6 +153,57 @@ namespace Telzir.Controllers
         private bool UsuarioExists(int id)
         {
             return _context.Usuario.Any(e => e.Id == id);
+        }
+
+        [AllowAnonymous]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login([Bind("Login,Senha")] Usuario usuario)
+        {
+            var usuarioModel = await _context
+                                            .Usuario
+                                            .FirstOrDefaultAsync(
+                                                u => u.Login == usuario.Login &&
+                                                     u.Senha == usuario.Senha);
+
+            if (usuarioModel != null)
+            {
+                var claims = new List<Claim>();
+                claims.Add(new Claim(ClaimTypes.NameIdentifier, usuarioModel.Id.ToString()));
+                claims.Add(new Claim(ClaimTypes.Name, usuarioModel.Nome));
+                claims.Add(new Claim(ClaimTypes.GivenName, usuarioModel.Login));
+                
+
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+                var authProperties = new AuthenticationProperties
+                {
+                    AllowRefresh = true,
+                    IsPersistent = true,
+                    ExpiresUtc = DateTime.UtcNow.AddMinutes(2)
+                };
+                
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
+
+                return RedirectToAction("Index", "Planos");
+            }
+            else{
+                TempData["ErroAutenticacao"] = "Usuário ou senha inválido";
+                return View();
+            }
+        
+        }
+        [AllowAnonymous]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login", "Usuarios");
         }
     }
 }

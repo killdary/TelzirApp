@@ -4,17 +4,23 @@ namespace Telzir.Negocio
 {
     public class CalculoTarifa
     {
-        public Tarifa Tarifa { get; set; }
-        public Pacote Pacote { get; set; }
-        public int Minutos { get; set; }
+        public decimal Valor { get; set; }
+        public decimal Porcentagem { get; set; }
+        public int MinutosPacote { get; set; }
+        public int MinutosConsumidos { get; set; }
         public decimal ValorComPlano { get; set; }
         public decimal ValorSemPlano { get; set; }
 
+        // 0 - Erro na consulta
+        // 1 - Tarifa informada não existe
+        // 2 - Valor calculado com sucesso
+        public int Status {get; set; }
+
         public CalculoTarifa ValorTarifa(){
 
-            ValorSemPlano = Minutos * Tarifa.Valor;
+            ValorSemPlano = MinutosConsumidos * Valor;
 
-            ValorComPlano = ((Pacote.Minutos - Minutos) <= 0) ? 0 : (Pacote.Minutos - Minutos) * (Tarifa.Valor * (1 + Pacote.Plano.Porcentagem));
+            ValorComPlano = ((MinutosConsumidos - MinutosPacote) <= 0) ? 0 : (MinutosConsumidos - MinutosPacote) * (Valor * (1 + Porcentagem/100));
 
             return this;
         }

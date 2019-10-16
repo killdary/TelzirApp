@@ -1,10 +1,10 @@
 @model Telzir.Models.Pacote
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
-<h1>Edit</h1>
+<h1>Editar</h1>
 
 <h4>Pacote</h4>
 <hr />
@@ -29,14 +29,14 @@
                 <span asp-validation-for="Tipo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary btn-sm" />
+                <a class="btn btn-danger btn-sm" asp-asp-controller="Planos"  asp-action="Index">Voltar a lista</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

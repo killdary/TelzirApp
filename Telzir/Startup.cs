@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Telzir.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Telzir
 {
@@ -37,6 +38,12 @@ namespace Telzir
                 options.UseSqlite(Configuration.GetConnectionString("TelzirContext")));
 
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                    .AddCookie(options => {
+                        options.ExpireTimeSpan = TimeSpan.FromHours(1);
+                        options.LoginPath = new PathString("/Usuarios/Login");
+                    });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -57,6 +64,7 @@ namespace Telzir
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

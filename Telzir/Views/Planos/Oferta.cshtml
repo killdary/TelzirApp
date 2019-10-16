@@ -1,0 +1,189 @@
+@model Telzir.Models.PlanoPacotes
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    ViewData["Title"] = "Details";
+}
+<div class="text-center">
+    <h1 class="display-4">@Model.Plano.Nome</h1>
+    
+</div>
+
+    <p class="lead">
+        @Model.Plano.Descricao
+    </p>
+        
+    <h3>Pacotes</h3>
+    <p class="lead">
+        Abaixo você poderá conferir nossos pacotes.
+    </p>
+
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Minutos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Pacotes ) { 
+        <tr>         
+            <th scope="row">@item.Descricao</th>
+            <th>@item.Minutos</th>   
+        </tr>         
+        }
+    </tbody>
+    </table>
+    <h3>Simulação</h3>
+    <p class="lead">
+        Realize uma simulação e veja quanto você pagará através do @Model.Plano.Nome.
+    </p>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <label for="exampleInputEmail1">DD Origem</label>
+                
+            <select class="form-control" id="DdOrigem">
+            
+                @foreach (var item in Model.Tarifas.GroupBy(s => s.DdOrigem).Select(y => y.First())) { 
+                    
+                        <option value="@item.DdOrigem">@item.DdOrigem</option>   
+                }
+            </select>
+        </div>
+        <div class="col-lg-4">
+            <label for="exampleInputEmail1">DD Destino</label>
+                
+            <select class="form-control" id="DdDestino">
+            @foreach (var item in Model.Tarifas.GroupBy(s => s.DdDestino).Select(y => y.First())) { 
+                    
+                        <option value="@item.DdDestino">@item.DdDestino</option>   
+                }
+            </select>
+        </div>
+        <div class="col-lg-4">
+            <label for="exampleInputEmail1">Plano</label>
+            <select class="form-control" id="Pacote">
+
+                @foreach (var item in Model.Pacotes ) { 
+                            <option value="@item.Id">@item.Descricao</option>   
+                }
+            </select>
+        </div>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-lg-4">
+            <label>Número de minutos</label>
+                <input type="number" class="form-control" id="Minutos" placeholder="Digite os minutos ">
+                
+        </div>
+        <div class="col-lg-4">
+            <label>Valor Com o Plano</label>
+                <input type="text" class="form-control disabled" readonly id="ValorComPlano">
+                
+        </div>
+        <div class="col-lg-4">
+            <label>Valor Sem o Plano</label>
+                <input  type="text" class="form-control disabled" readonly id="ValorSemPlano">
+            
+        </div>
+    </div>
+
+    </br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-12 justify-content-end d-flex">
+                    <button class="btn btn-primary" id="btn-calcular">Calcular</button>
+                </div>
+            </div>
+        </div>
+    </div>
+@section Head{
+    <script type="text/javascript">   
+    $( document ).ready(function() {
+        console.log( "ready!" );
+    }); 
+    $(document).ready(function () {
+        $( "#btn-calcular" ).click(function() {
+            CalcularTarifa();
+        });
+    });
+
+    function CalcularTarifa() {
+        var minutos = $("#Minutos").val();
+        var ddOrigem = $("#DdOrigem").children("option:selected").val();
+        var ddDestino = $("#DdDestino").children("option:selected").val();
+        var Pacote = $("#Pacote").children("option:selected").val();
+
+
+        $.ajax({
+            url: "@Url.Content("~/Home/CalcularValor")",
+            dataType: "JSON",
+            type: "POST",
+            data: {DdOrigem: ddOrigem, DdDestino: ddDestino, Tempo : minutos, PacoteId: Pacote},
+            success: function (retorno) {
+                if (retorno.status == 2) {
+                    $("#ValorComPlano").val(retorno.valorComPlano);
+                    $("#ValorSemPlano").val(retorno.valorSemPlano);
+                }
+                else if(retorno.status == 1){
+                    alert("Sinto muito, mas não possuimos cobertura para as tarifas informadas.");
+                }
+            }
+            /*complete: function () {
+                $("#simulador-" + item).unblock();
+            }*/
+        });
+
+        //var tempo = $("#planos-minutos-gastos-" + item).val();
+        //var origem = $("#origem-" + item).val();
+        //var destino = $("#destino-" + item).val();
+        //
+        //if(tempo.length < 1 &&
+        //    origem.length <3 &&
+        //    destino.length < 3) {
+        //    var n = noty({
+        //        text: "Preencha corretamente todos os campos",
+        //        type: "error",
+        //        closeWith: ['click'],
+        //        layout: "bottom"
+        //    });
+        //}
+        //else {
+        //    $("#simulador-" + item).block({ message: "Calculando..." });
+        //    var PedidoCalculo = {
+        //        PlanoID: parseInt(id),
+        //        Tempo: tempo,
+        //        Origem: origem,
+        //        Destino: destino
+        //    };
+        //    $("#retorno-mensagem-" + item).html("");
+        //    $.ajax({
+        //        url: "@Url.Content("~/Home/Calcular")",
+        //        dataType: "JSON",
+        //        type: "POST",
+        //        data: PedidoCalculo,
+        //        success: function (retorno) {
+        //            if (retorno.Detalhe.Sucesso) {
+        //                $("#retorno-" + item).slideDown(1000);
+        //                Math.round(retorno.Detalhe.ValorComPlano * Math.pow(10, 2)) / Math.pow(10, 2);
+        //                $("#retorno-" + item).find("table").find("tr").last().find("td").eq(0).html(retorno.Detalhe.Tempo + "<small> min.</small>");
+        //                $("#retorno-" + item).find("table").find("tr").last().find("td").eq(1).html("<strong>R$ " + Math.round(retorno.Detalhe.ValorComPlano * Math.pow(10, 2)) / Math.pow(10, 2) + "</strong>");
+        //                $("#retorno-" + item).find("table").find("tr").last().find("td").eq(2).html("R$ " + Math.round(retorno.Detalhe.ValorSemPlano * Math.pow(10, 2)) / Math.pow(10, 2));
+        //            }
+        //            else {
+        //                $("#retorno-mensagem-" + item).html("O DDD escolhido não faz parte do pacote.");
+        //            }
+        //        },
+        //        complete: function () {
+        //            $("#simulador-" + item).unblock();
+        //        }
+        //    });
+        //}
+        
+    }
+</script>
+}

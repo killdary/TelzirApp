@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Telzir.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Telzir.Controllers
 {
+    [Authorize]
     public class PacotesController : Controller
     {
         private readonly TelzirContext _context;
@@ -19,9 +21,10 @@ namespace Telzir.Controllers
         }
 
         // GET: Pacotes
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Pacote.ToListAsync());
+            return RedirectToAction("Index", "Planos");
+            // return View(await _context.Pacote.ToListAsync());
         }
 
         // GET: Pacotes/Details/5
@@ -43,8 +46,25 @@ namespace Telzir.Controllers
         }
 
         // GET: Pacotes/Create
-        public IActionResult Create()
+        public IActionResult Create(int? PlanoId)
         {
+            if(PlanoId == null){
+                TempData["codeError"] = 404;
+                TempData["Mensagem"] = "Um pacote só pode ser cadastrado em um plano"; 
+                return RedirectToAction("Index", "Planos");
+            
+            }
+
+            var plano = _context.Plano.FirstOrDefault(p => p.Id == PlanoId);
+
+            if (plano == null)
+            {
+                TempData["codeError"] = 404;
+                TempData["Mensagem"] = "Um pacote só pode ser cadastrado em um plano"; 
+                return RedirectToAction("Index", "Planos");
+            }
+
+            ViewData["PlanoId"] = PlanoId;
             return View();
         }
 
@@ -53,10 +73,20 @@ namespace Telzir.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Descricao,Minutos,Tipo")] Pacote pacote)
+        public async Task<IActionResult> Create(int? PlanoId, [Bind("Id,Descricao,Minutos,Tipo")] Pacote pacote)
         {
             if (ModelState.IsValid)
             {
+                var plano = await _context.Plano.FirstOrDefaultAsync(p => p.Id == PlanoId);
+
+                if (plano == null)
+                {
+                    TempData["codeError"] = 404;
+                    TempData["Mensagem"] = "Um pacote só pode ser cadastrado em um plano"; 
+                    return RedirectToAction("Index", "Planos");
+                }
+
+                pacote.Plano = plano;
                 _context.Add(pacote);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -72,7 +102,8 @@ namespace Telzir.Controllers
                 return NotFound();
             }
 
-            var pacote = await _context.Pacote.FindAsync(id);
+            var pacote = await _context.Pacote
+                                        .FirstOrDefaultAsync(pac => pac.Id == id);
             if (pacote == null)
             {
                 return NotFound();
@@ -92,6 +123,11 @@ namespace Telzir.Controllers
                 return NotFound();
             }
 
+            
+            var planoPacote = await _context.Pacote.AsNoTracking()
+                                .Include(pac => pac.Plano)
+                                .FirstOrDefaultAsync(pac => pac.Id == id);
+
             if (ModelState.IsValid)
             {
                 try
@@ -110,7 +146,10 @@ namespace Telzir.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                
+
+                return RedirectToAction("Details", "Planos", new {@id=planoPacote.Plano.Id});
+                // return RedirectToAction(nameof(Index));
             }
             return View(pacote);
         }

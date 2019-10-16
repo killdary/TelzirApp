@@ -1,0 +1,17 @@
+@model Telzir.Models.Usuario
+
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    ViewData["Title"] = "Page Title";
+}
+<form class="form-signin" asp-action="Login">
+       <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+      <label for="Login" class="sr-only">Usuario</label>
+      <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus> -->
+      <input asp-for="Login" class="form-control"  required autofocus placeholder="Usuário"/>
+      <label for="Senha" class="sr-only">Senha</label>
+      <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
+      <input asp-for="Senha" class="form-control" placeholder="Senha" required />
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
